@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -25,10 +25,10 @@ main > h1 {
 }
 
 .Add-vote {
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
   padding: 1rem;
   background: #fff;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -45,13 +45,19 @@ main > h1 {
 }
 
 .Add-vote input {
-  display: block;
+  display: inline-block;
   margin: 1rem auto;
-  width: 20rem;
+  width: auto;
   padding: 0.5rem;
-  border: 1px solid #00b8e6;
+  border: 3px solid #00b8e6;
   border-radius: 10px;
   outline: none;
+}
+
+input[type='text'] {
+  width: 25rem;
+  grid-column: 1 / span 2;
+  height: 2rem;
 }
 
 .Add-vote button {
@@ -63,6 +69,7 @@ main > h1 {
   border-radius: 20px;
   cursor: pointer;
   outline: none;
+  grid-column: 1 / span 2;
 }
 
 .Add-vote button:hover {
@@ -111,4 +118,36 @@ main > h1 {
 
 .Vote button:hover {
   background: #e06a6a;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+img {
+  width: 30%;
+  vertical-align: middle;
+}
+
+.fruit {
+  width: 50%;
+  float: left;
+}
+
+.item4 {
+  text-align: center;
+}
+
+.item5 {
+  text-align: center;
+}
+
+.item6 {
+  text-align: center;
 }
