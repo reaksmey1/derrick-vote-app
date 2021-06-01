@@ -5,11 +5,12 @@ import "./styles.css"
 import { Vote } from "./components/Vote"
 import { Result } from "./components/Result"
 import { AddVote } from "./components/AddVote"
+import { VotesList } from "./components/VotesList"
 import { addVote, removeVote } from "./store/actionCreators"
 import { Dispatch } from "redux"
 
 const App: React.FC = () => {
-  const votes: readonly IVote[] = useSelector(
+  const votes: IVote[] = useSelector(
     (state: VotingState) => state.votes,
     shallowEqual
   )
@@ -26,6 +27,7 @@ const App: React.FC = () => {
       <h1>My Votes</h1>
       <AddVote saveVote={saveVote} />
       <Result total={40} />
+      <VotesList votes={votes} />
       <div className="result-wrapper">
         {votes.map((vote: IVote) => (
           <Vote

@@ -21,22 +21,22 @@ const reducer = (
 ): VotingState => {
   switch (action.type) {
     case actionTypes.ADD_VOTE:
-      const newArticle: IVote = {
+      const newVote: IVote = {
         id: Math.random(), // not really unique
         fruit: action.vote.fruit,
         voter: action.vote.voter,
       }
       return {
         ...state,
-        votes: state.votes.concat(newArticle),
+        votes: state.votes.concat(newVote),
       }
     case actionTypes.REMOVE_VOTE:
-      const updatedArticles: IVote[] = state.votes.filter(
+      const updatedVotes: IVote[] = state.votes.filter(
         vote => vote.id !== action.vote.id
       )
       return {
         ...state,
-        votes: updatedArticles,
+        votes: updatedVotes,
       }
   }
   return state
