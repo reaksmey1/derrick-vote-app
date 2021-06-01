@@ -1,44 +1,53 @@
-import * as React from "react"
-import { removeVote } from "../store/actionCreators"
-import { Vote } from "../components/Vote"
+import * as React from 'react'
+import { removeVote } from '../store/actionCreators'
+import { Vote } from '../components/Vote'
 
 type MyProps = {
   votes: IVote[]
 }
 
 type MyState = {
-  filteredVotes: IVote[];
-};
+  filteredVotes: IVote[]
+}
 
-export class VotesList extends React.Component <MyProps, MyState>  {
-
+export class VotesList extends React.Component<MyProps, MyState> {
   constructor(props: any) {
-    super(props);
+    super(props)
 
-    this.state = {
-      filteredVotes: props.votes
-    }; 
+    this.state = this.getInitialState()
   }
 
-  handleClick = () => {
-    const { filteredVotes } = this.state
-    const filtered = filteredVotes.filter(t=>t.fruit ==='Apple');
-    this.setState({ filteredVotes: filtered})
+  getInitialState() {
+    return {
+      filteredVotes: this.props.votes
+    }
+  }
+
+  handleClick = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { filteredVotes } = this.getInitialState()
+    if (event.target.value !== '0') {
+      const filtered = filteredVotes.filter(
+        (t) => t.fruit === event.target.value
+      )
+      this.setState({ filteredVotes: filtered })
+    } else {
+      this.setState({ filteredVotes: filteredVotes })
+    }
   }
 
   render() {
     const { filteredVotes } = this.state
     return (
-      <div className="result-wrapper">
-        <button onClick={this.handleClick}>
-          Add vote
-        </button>
+      <div className='result-wrapper'>
+        <select name='PreviousReceiver' onChange={this.handleClick}>
+          <option value='0'>Filter Fruits</option>
+          <option value='Apple'>Apple</option>
+          <option value='Banana'>Banana</option>
+          <option value='watermelon'>Watermelon</option>
+        </select>
+        {/* <button onClick={this.handleClick}>Add vote</button> */}
         {filteredVotes.map((vote: IVote) => (
-          <Vote
-            key={vote.id}
-            vote={vote}
-            removeVote={removeVote}
-          />
+          <Vote key={vote.id} vote={vote} removeVote={removeVote} />
         ))}
       </div>
     )

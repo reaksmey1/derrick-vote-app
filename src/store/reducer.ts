@@ -1,18 +1,20 @@
-import * as actionTypes from "./actionTypes"
+import * as actionTypes from './actionTypes'
 
 const initialState: VotingState = {
   votes: [
     {
       id: 1,
-      fruit: "Apple",
-      voter: "Derrick",
+      fruit: 'Apple',
+      firstName: 'Derrick',
+      lastName: 'Harsono'
     },
     {
       id: 2,
-      fruit: "Banana",
-      voter: "Charles",
-    },
-  ],
+      fruit: 'Banana',
+      firstName: 'Charles',
+      lastName: 'Harsono'
+    }
+  ]
 }
 
 const reducer = (
@@ -24,19 +26,20 @@ const reducer = (
       const newVote: IVote = {
         id: Math.random(), // not really unique
         fruit: action.vote.fruit,
-        voter: action.vote.voter,
+        firstName: action.vote.firstName,
+        lastName: action.vote.lastName
       }
       return {
         ...state,
-        votes: state.votes.concat(newVote),
+        votes: state.votes.concat(newVote)
       }
     case actionTypes.REMOVE_VOTE:
       const updatedVotes: IVote[] = state.votes.filter(
-        vote => vote.id !== action.vote.id
+        (vote) => vote.id !== action.vote.id
       )
       return {
         ...state,
-        votes: updatedVotes,
+        votes: updatedVotes
       }
   }
   return state

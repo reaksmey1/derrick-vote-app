@@ -2,10 +2,9 @@ import * as React from 'react'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import './styles.css'
 
-import { Vote } from './components/Vote'
 import { Result } from './components/Result'
 import { AddVote } from './components/AddVote'
-import { addVote, removeVote } from './store/actionCreators'
+import { addVote } from './store/actionCreators'
 import { Dispatch } from 'redux'
 import { VotesList } from './components/VotesList'
 
@@ -31,13 +30,8 @@ const App: React.FC = () => {
       <div className='grid-container'>
         <Result total={40} />
       </div>
-      <VotesList votes={votes} />
       <div className='grid-container'>
-        <div className='result-wrapper'>
-          {votes.map((vote: IVote) => (
-            <Vote key={vote.id} vote={vote} removeVote={removeVote} />
-          ))}
-        </div>
+        <VotesList votes={votes} />
       </div>
     </main>
   )

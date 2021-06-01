@@ -10,6 +10,7 @@ import banana from '../images/banana.svg'
 
 type Props = {
   saveVote: (article: IVote | any) => void
+  data?: any
 }
 
 export const AddVote: React.FC<Props> = ({ saveVote }) => {
@@ -30,104 +31,112 @@ export const AddVote: React.FC<Props> = ({ saveVote }) => {
   return (
     <form onSubmit={addNewVote} className='Add-vote'>
       <div className='fruit orange'>
-        <label htmlFor='orange'>
+        <label>
           <input
             type='radio'
-            value='orange'
+            value='Orange'
             id='fruit'
+            name='fruit'
             // checked={vote.fruit === 'orange'}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Orange
           <img src={orange} alt='orange' />
         </label>
       </div>
       <div className='fruit watermelon'>
-        <label htmlFor='watermelon'>
+        <label>
           <input
             type='radio'
-            value='watermelon'
+            value='Watermelon'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Female"}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Watermelon
           <img src={watermelon} alt='watermelon' />
         </label>
       </div>
       <div className='fruit kiwifruit'>
-        <label htmlFor='kiwifruit'>
+        <label>
           <input
             type='radio'
-            value='kiwifruit'
+            value='Kiwifruit'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Other"}
-            //onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Kiwifruit
           <img src={kiwifruit} alt='kiwifruit' />
         </label>
       </div>
       <div className='fruit cherry'>
-        <label htmlFor='cherry'>
+        <label>
           <input
             type='radio'
-            value='cherry'
+            value='Cherry'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Male"}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Cherry
           <img src={cherry} alt='cherry' />
         </label>
       </div>
       <div className='fruit apple'>
-        <label htmlFor='apple'>
+        <label>
           <input
             type='radio'
-            value='apple'
+            value='Apple'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Male"}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Apple
           <img src={apple} alt='apple' />
         </label>
       </div>
       <div className='fruit grape'>
-        <label htmlFor='grape'>
+        <label>
           <input
             type='radio'
-            value='grape'
+            value='Grape'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Male"}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Grape
           <img src={grape} alt='grape' />
         </label>
       </div>
       <div className='fruit pear'>
-        <label htmlFor='pear'>
+        <label>
           <input
             type='radio'
-            value='pear'
+            value='Pear'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Male"}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Pear
           <img src={pear} alt='pear' />
         </label>
       </div>
       <div className='fruit banana'>
-        <label htmlFor='banana'>
+        <label>
           <input
             type='radio'
-            value='banana'
+            value='Banana'
             id='fruit'
+            name='fruit'
             //checked={this.state.selectedOption === "Male"}
-            // onChange={this.onValueChange}
+            onChange={handleVoteData}
           />
           Banana
           <img src={banana} alt='banana' />

@@ -42,7 +42,8 @@ export const Vote: React.FC<Props> = ({ vote, removeVote }) => {
     <div className='Vote'>
       <div>
         <h1>{vote.fruit}</h1>
-        <p>{vote.voter}</p>
+        <p>{vote.firstName}</p>
+        <p>{vote.lastName}</p>
       </div>
       {renderButtons()}
     </div>

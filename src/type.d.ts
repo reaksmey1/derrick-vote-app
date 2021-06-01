@@ -1,7 +1,9 @@
 interface IVote {
   id: number
   fruit: string
-  voter: string
+  //voter: string
+  firstName: string
+  lastName: string
 }
 
 type VotingState = {
