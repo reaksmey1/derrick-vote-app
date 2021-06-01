@@ -7,9 +7,10 @@ import { Result } from './components/Result'
 import { AddVote } from './components/AddVote'
 import { addVote, removeVote } from './store/actionCreators'
 import { Dispatch } from 'redux'
+import { VotesList } from './components/VotesList'
 
 const App: React.FC = () => {
-  const votes: readonly IVote[] = useSelector(
+  const votes: IVote[] = useSelector(
     (state: VotingState) => state.votes,
     shallowEqual
   )
@@ -30,6 +31,7 @@ const App: React.FC = () => {
       <div className='grid-container'>
         <Result total={40} />
       </div>
+      <VotesList votes={votes} />
       <div className='grid-container'>
         <div className='result-wrapper'>
           {votes.map((vote: IVote) => (
