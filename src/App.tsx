@@ -28,7 +28,7 @@ const App: React.FC = () => {
         <AddVote saveVote={saveVote} />
       </div>
       <div className='grid-container'>
-        <Result total={40} />
+        <Result votes={votes} />
       </div>
       <div className='grid-container'>
         <VotesList votes={votes} />

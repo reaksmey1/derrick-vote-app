@@ -17,6 +17,15 @@ export class VotesList extends React.Component<MyProps, MyState> {
     this.state = this.getInitialState()
   }
 
+  componentDidUpdate(nextProps: any) {
+    const { votes } = this.props
+    if (nextProps.votes !== votes) {
+     if (votes) {
+      this.setState({ filteredVotes: votes })
+     }
+    }
+   }
+
   getInitialState() {
     return {
       filteredVotes: this.props.votes
@@ -37,6 +46,7 @@ export class VotesList extends React.Component<MyProps, MyState> {
 
   render() {
     const { filteredVotes } = this.state
+    const { votes } = this.props;
     return (
       <div className='result-wrapper'>
         <select name='PreviousReceiver' onChange={this.handleClick}>
