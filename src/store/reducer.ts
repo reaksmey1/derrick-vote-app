@@ -17,6 +17,8 @@ const initialState: VotingState = {
   ]
 }
 
+let nextVoteId = 2
+
 const reducer = (
   state: VotingState = initialState,
   action: VotingAction
@@ -24,7 +26,7 @@ const reducer = (
   switch (action.type) {
     case actionTypes.ADD_VOTE:
       const newVote: IVote = {
-        id: Math.random(), // not really unique
+        id: ++nextVoteId,
         fruit: action.vote.fruit,
         firstName: action.vote.firstName,
         lastName: action.vote.lastName

@@ -151,3 +151,11 @@ img {
 .item6 {
   text-align: center;
 }
+
+.fruitSelections {
+  display: flex;
+  height: 30px;
+  width: 30%;
+  font-size: large;
+  font-weight: bold;
+}

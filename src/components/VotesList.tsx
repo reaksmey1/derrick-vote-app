@@ -20,11 +20,11 @@ export class VotesList extends React.Component<MyProps, MyState> {
   componentDidUpdate(nextProps: any) {
     const { votes } = this.props
     if (nextProps.votes !== votes) {
-     if (votes) {
-      this.setState({ filteredVotes: votes })
-     }
+      if (votes) {
+        this.setState({ filteredVotes: votes })
+      }
     }
-   }
+  }
 
   getInitialState() {
     return {
@@ -46,14 +46,19 @@ export class VotesList extends React.Component<MyProps, MyState> {
 
   render() {
     const { filteredVotes } = this.state
-    const { votes } = this.props;
+    // const { votes } = this.props
     return (
       <div className='result-wrapper'>
-        <select name='PreviousReceiver' onChange={this.handleClick}>
+        <select className='fruitSelections' onChange={this.handleClick}>
           <option value='0'>Filter Fruits</option>
+          <option value='Orange'>Orange</option>
+          <option value='Watermelon'>Watermelon</option>
+          <option value='Kiwifruit'>Kiwifruit</option>
+          <option value='Cherry'>Cherry</option>
           <option value='Apple'>Apple</option>
+          <option value='Grape'>Grape</option>
+          <option value='Pear'>Pear</option>
           <option value='Banana'>Banana</option>
-          <option value='watermelon'>Watermelon</option>
         </select>
         {/* <button onClick={this.handleClick}>Add vote</button> */}
         {filteredVotes.map((vote: IVote) => (
