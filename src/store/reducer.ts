@@ -17,8 +17,6 @@ const initialState: VotingState = {
   ]
 }
 
-let nextVoteId = 2
-
 const reducer = (
   state: VotingState = initialState,
   action: VotingAction
@@ -26,7 +24,7 @@ const reducer = (
   switch (action.type) {
     case actionTypes.ADD_VOTE:
       const newVote: IVote = {
-        id: ++nextVoteId,
+        id: Math.floor(Math.random() * 1000),
         fruit: action.vote.fruit,
         firstName: action.vote.firstName,
         lastName: action.vote.lastName
@@ -42,6 +40,19 @@ const reducer = (
       return {
         ...state,
         votes: updatedVotes
+      }
+    case actionTypes.SAVE_VOTE:
+      // const oldVote: IVote[] = state.votes.filter(
+      //   (vote) => vote.id === action.vote.id
+      // )
+      const foundIndex = state.votes.findIndex((x) => x.id === action.vote.id)
+      const updatedVote: IVote[] = state.votes
+
+      updatedVote[foundIndex] = action.vote
+
+      return {
+        ...state,
+        votes: updatedVote
       }
   }
   return state

@@ -1,7 +1,6 @@
 interface IVote {
   id: number
   fruit: string
-  //voter: string
   firstName: string
   lastName: string
 }

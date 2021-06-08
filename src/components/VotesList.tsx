@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { removeVote } from '../store/actionCreators'
+import { saveVote } from '../store/actionCreators'
 import { Vote } from '../components/Vote'
 
 type MyProps = {
@@ -62,7 +63,12 @@ export class VotesList extends React.Component<MyProps, MyState> {
         </select>
         {/* <button onClick={this.handleClick}>Add vote</button> */}
         {filteredVotes.map((vote: IVote) => (
-          <Vote key={vote.id} vote={vote} removeVote={removeVote} />
+          <Vote
+            key={vote.id}
+            vote={vote}
+            removeVote={removeVote}
+            saveVote={saveVote}
+          />
         ))}
       </div>
     )
